@@ -6,4 +6,3 @@ config/*
 coverage/*
 .nyc_output/*
 .serverless/*
-storage/

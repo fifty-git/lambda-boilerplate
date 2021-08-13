@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "da7713b9-e345-4dd6-a8cf-684654cf20c5",
+		"name": "Demo Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DEMO AUTH",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "demouser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "8-mA8DWd2WW^7*",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEMO GET",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mjg4OTE3MzIsIm5hbWUiOiJiYXRjaHNtc2p3dCIsImlhdCI6MTYyODg4ODEzMn0.ya1ShOVdDi8x9P4Q1K3uJ1HGEZ6uDQnHRR-J3IHEJ90",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/demo/227",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demo",
+						"227"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEMO POST",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mjg4OTMzOTcsIm5hbWUiOiJiYXRjaHNtc2p3dCIsImlhdCI6MTYyODg4OTc5N30.fygneSLEJITDwVEeD7EFNcS5CVdrjdYoT0mvCAQGyJ4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tagName\": \"Test Tag Demo\",\n    \"tagDescription\": \"THIS IS A TEST DEMO TAG\",\n    \"tagPriority\": 95,\n    \"tagColor\": \"FFFF00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/demo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEMO PUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mjg4OTMyMjgsIm5hbWUiOiJiYXRjaHNtc2p3dCIsImlhdCI6MTYyODg4OTYyOH0.DcMu9WLMGRxz_nUuxR0Y3sFIu9H641Ea923pj-JkADA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tagId\": 100,\n    \"tagDescription\": \"THIS IS A TEST UPDATE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/demo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"demo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
