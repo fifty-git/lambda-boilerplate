@@ -1,0 +1,35 @@
+service: express-lambda-boilerplate
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  variablesResolutionMode: 20210326
+  configValidationMode: error
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda: '*'
+        - rds: '*'
+      Resource: '*'
+
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  role: ${env:ROLE}
+
+functions:
+  app:
+    handler: index.handler
+    timeout: 29
+    events:
+      - http: GET /auth
+        cors: true
+      - http: 
+          path: demo/{id}/{name}
+          method: GET 
+      - http: POST /demo
+        cors: true
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
