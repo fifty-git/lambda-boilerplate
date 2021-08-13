@@ -1,28 +1,36 @@
 'use strict';
 
-const AWS = require('aws-sdk');
 const asyncHandler = require('express-async-handler');
+const {
+  getTagService,
+  insertTagService,
+  updateTagService,
+} = require('../services/demoService');
 
 module.exports = {
   get: asyncHandler(async (req, res) => {
-    if (!req.params) {
-      res
-        .status(400)
-        .json({ error: true, message: 'there was an error' });
+    const result = await getTagService(req.params.id);
+    if (result.error) {
+      res.status(400).json(result.error);
     }
-    res.status(200).json({
-      error: false,
-      message: 'Success',
-      params: req.params,
-    });
+    res.status(200).json(result);
   }),
+
   post: asyncHandler(async (req, res) => {
     const { body } = req;
-    if (body.length > 0) {
-      res
-        .status(400)
-        .json({ error: true, message: 'there was an error' });
+    const result = await insertTagService(body);
+    if (result.error) {
+      res.status(400).json(result.error);
     }
-    res.status(200).json({ error: false, message: 'Success', body });
+    res.status(200).json(result);
+  }),
+
+  put: asyncHandler(async (req, res) => {
+    const { body } = req;
+    const result = await updateTagService(body);
+    if (result.error) {
+      res.status(400).json(result.error);
+    }
+    res.status(200).json(result);
   }),
 };

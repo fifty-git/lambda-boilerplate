@@ -25,9 +25,12 @@ functions:
       - http: GET /auth
         cors: true
       - http: 
-          path: demo/{id}/{name}
+          path: demo/{id}
           method: GET 
+          cors: true
       - http: POST /demo
+        cors: true
+      - http: PUT /demo
         cors: true
 
 plugins:
