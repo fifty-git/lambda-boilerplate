@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=development nyc --reporter=html --reporter=text node_modules/mocha/bin/mocha",
-    "start": "NODE_ENV=development sls offline --cacheInvalidationRegex"
+    "test": "NODE_ENV=development nyc --reporter=html --reporter=text node_modules/mocha/bin/mocha ./tests/unit/*",
+    "testonline": "./node_modules/.bin/serverless offline && NODE_ENV=development nyc --reporter=html --reporter=text node_modules/bin/mocha ./tests/unit/index.js",
+    "start": "NODE_ENV=development sls offline --cacheInvalidationRegex",
+    "lint": "./node_modules/.bin/eslint",
+    "lintall": "./node_modules/.bin/eslint controllers/*.js models/*.js routes/*.js services/*.js tests/*/*.js tests/*/*/*.js ./index.js"
   },
   "keywords": [],
   "author": "",
