@@ -6,3 +6,4 @@ config/*
 coverage/*
 .nyc_output/*
 .serverless/*
+.DS_Store
