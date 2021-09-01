@@ -1,7 +1,6 @@
 *.code-workspace
 node_modules/*
 .env*
-.eslintrc.js
 config/*
 coverage/*
 .nyc_output/*
